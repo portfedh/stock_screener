@@ -13,10 +13,10 @@ api = os.environ.get("token_finmodelprep2")
 # Variables
 # fin_data = "/income-statement/"
 # sqlite_table = "income_statement"
-# fin_data = '/balance-sheet-statement/'
-# sqlite_table = "balance_sheet"
-fin_data = '/cash-flow-statement/'
-sqlite_table = "cashflow_statement"
+fin_data = '/balance-sheet-statement/'
+sqlite_table = "balance_sheet"
+# fin_data = '/cash-flow-statement/'
+# sqlite_table = "cashflow_statement"
 
 # Open Json File and save as variable
 with open("ticker_list.json", "r") as f:

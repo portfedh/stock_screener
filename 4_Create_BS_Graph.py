@@ -42,49 +42,49 @@ for ticker in symbol_list:
     fig = go.Figure(
         data=[
             go.Bar(
-                name="Assets",
-                x=graph_df_x["calendarYear"],
-                y=graph_df_x["totalAssets"],
-                marker_color="#003B73",
-                offsetgroup=0,
-            ),
+                    name="Assets",
+                    x=graph_df_x["calendarYear"],
+                    y=graph_df_x["totalAssets"],
+                    marker_color="#003B73",
+                    offsetgroup=0,
+                    ),
             go.Bar(
-                name="Equity",
-                x=graph_df_x["calendarYear"],
-                y=graph_df_x["totalStockholdersEquity"],
-                marker_color="#01949a",
-                offsetgroup=1,
-            ),
+                    name="Equity",
+                    x=graph_df_x["calendarYear"],
+                    y=graph_df_x["totalStockholdersEquity"],
+                    marker_color="#01949a",
+                    offsetgroup=1,
+                    ),
             go.Bar(
-                name="Liabilities",
-                x=graph_df_x["calendarYear"],
-                y=graph_df_x["totalLiabilities"],
-                marker_color="#db1f48",
-                offsetgroup=1,
-                base=graph_df_x["totalStockholdersEquity"],
-            ),
+                    name="Liabilities",
+                    x=graph_df_x["calendarYear"],
+                    y=graph_df_x["totalLiabilities"],
+                    marker_color="#db1f48",
+                    offsetgroup=1,
+                    base=graph_df_x["totalStockholdersEquity"],
+                    ),
             go.Bar(
-                name="GW & Intangibles",
-                x=graph_df_x["calendarYear"],
-                y=graph_df_x["goodwillAndIntangibleAssets"],
-                marker_color="#746C70",
-                offsetgroup=2,
-            ),
-        ]
+                    name="GW & Intangibles",
+                    x=graph_df_x["calendarYear"],
+                    y=graph_df_x["goodwillAndIntangibleAssets"],
+                    marker_color="#746C70",
+                    offsetgroup=2,
+                    ),
+             ]
     )
 
     fig.update_layout(
-        barmode="group",  # group or stack
-        title=str("Balance Sheet for: " + company_name),
-        xaxis_title="Year",
-        yaxis_title=("Amount $ " + currency),
-        legend=dict(orientation="h",
-                    yanchor="bottom",
-                    xanchor="right",
-                    x=1, y=1.0),
-        width=800,
-        height=400,
+                      barmode="group",  # group or stack
+                      title=str("Balance Sheet for: " + company_name),
+                      xaxis_title="Year",
+                      yaxis_title=("Amount $ " + currency),
+                      legend=dict(orientation="h",
+                                  yanchor="bottom",
+                                  xanchor="right",
+                                  x=1, y=1.0),
+                      width=800,
+                      height=400,
     )
-    fig.update_traces(texttemplate="%{y:.2s}", textposition="inside")
+    fig.update_traces(texttemplate="%{y:.2s}",textposition="inside")
     file_name = "output/" + company_name + "_BS.png"
     fig.write_image(file_name, scale=2)
