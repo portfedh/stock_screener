@@ -4,6 +4,7 @@
 
 The script creates a PNG image showing a Company's Balance
 Sheet for the last five fiscal years.
+
 It's aim is to serve as a first level stock screener. 
 
 The image will create a graph with the following information:
@@ -37,9 +38,9 @@ The script is divided into several files that do the following:
 	- Read the SQLite database
 	- Create a Graph for each company
 
-5. Filter the companies with the best Balance Sheets (Manually)
+- Filter the companies with the best Balance Sheets (Manually)
 
-6. Create a List of the selected Balance Sheets for further analysis
+5. Create a List of the selected Balance Sheets for further analysis
 
 
 ### How to Install
@@ -71,10 +72,22 @@ Paid suscriptions give coverage to the rest of the stocks and an unlimited numbe
 
 ### Runing
 
-To Do
+1. Execute the first script.
+2. Define the exchange to evaluate
+3. Execute the second script. 
+4. Execute the third script
+5. Execute the fourth script
+6. Evaluate the companies you are interested in.
+7. Move the images to a folder you are interested
+8. Execute the fifth script
 
-You can see an example of the output file in the file named [Example_Report.pdf.](https://github.com/portfedh/fundamental_analysis_report/blob/main/Example_Report.pdf) 
+The fifth script will search a folder in `path = ./output/1.Blue`. You can change its name to whatever works for you. 
 
+You will end up with a list called `blue_list.json`. You can also change the name to whatever works for you.
+
+Besides having a five year history of the balance sheets you are interested in, you can use this output list to further research the stocks.
+
+There is another Repository named `Fundamental Analysis`, where a more extensive report of the company can be generated. 
 
 
 ## Use cases
