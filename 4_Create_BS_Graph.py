@@ -85,6 +85,6 @@ for ticker in symbol_list:
                       width=800,
                       height=400,
     )
-    fig.update_traces(texttemplate="%{y:.2s}",textposition="inside")
+    fig.update_traces(texttemplate="%{y:.2s}", textposition="inside")
     file_name = "output/" + company_name + "_BS.png"
     fig.write_image(file_name, scale=2)

@@ -11,6 +11,7 @@ print("Files found in path:'", path,)
 dir_list = os.listdir(path)
 # All files files have a .png extention
 # Every filename ends in "_BS"
+print(dir_list)
 
 # Clean the list
 output_list = []
@@ -25,8 +26,11 @@ for ticker in dir_list:
 # Sort list alphabetically
 output_list.sort()
 
+# Eliminate '.DS_St' from list
+output_list.pop(0)
+
 # Save list as JSON file
-with open("blue_list.json", "w") as f:
+with open("5y_blue_list.json", "w") as f:
     json.dump(output_list, f, indent=2)
     # indent=2 makes the file human-readable
 
