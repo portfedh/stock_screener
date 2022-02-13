@@ -30,10 +30,12 @@ for company in ticker_list:
     print("Company: " + company)
     try:
         # Creating Output Dataframe
-        df_output = pd.DataFrame(columns=["symbol", "peers"])
+        df_out = pd.DataFrame(columns=["symbol", "peers"])
 
         # Paste fmp_data link here:
-        fmp_data = requests.get(f"{www}{fin_data}?symbol={company}&apikey={api}").json()
+        fmp_data = requests.get(
+            f"{www}{fin_data}?symbol={company}&apikey={api}"
+        ).json()
 
         # Save financial data as Dataframe
         df = pd.DataFrame(fmp_data)
@@ -43,16 +45,17 @@ for company in ticker_list:
 
         # Append output dataframe with peers for each company
         for x in range(r):
-            df_output.loc[len(df_output.index)] = [company, df["peersList"][0][x]]
+            df_out.loc[len(df_out.index)] = [company, df["peersList"][0][x]]
 
         # Create an engine
         engine = create_engine("sqlite:///financialmodelingprep.db", echo=True)
         sqlite_connection = engine.connect()
 
         # Create a table
-        df_output.to_sql(
-            sqlite_table, sqlite_connection, if_exists="append", index=False
-        )
+        df_out.to_sql(sqlite_table,
+                      sqlite_connection,
+                      if_exists="append",
+                      index=False)
 
         # Close connection
         sqlite_connection.close()

@@ -22,7 +22,7 @@ with open("ticker_list.json", "r") as f:
 
 # Create Error file
 f = open("error_list.txt", "a")
-f.write("\n\n Income Statement Error List:\n")
+f.write("\n\nIncome Statement Error List:\n")
 f.close()
 
 # Importing data from Financial Modeling Prep
@@ -30,7 +30,9 @@ for company in ticker_list:
     print(company)
     try:
         # Paste fmp_data link here:
-        fmp_data = requests.get(f"{www}{fin_data}{company}?apikey={api}").json()
+        fmp_data = requests.get(
+            f"{www}{fin_data}{company}?apikey={api}"
+        ).json()
 
         # Save financial data as Dataframe
         df = pd.DataFrame(fmp_data)
@@ -45,7 +47,10 @@ for company in ticker_list:
         sqlite_connection = engine.connect()
 
         # Create a table
-        df.to_sql(sqlite_table, sqlite_connection, if_exists="append", index=False)
+        df.to_sql(sqlite_table,
+                  sqlite_connection,
+                  if_exists="append",
+                  index=False)
 
         # Close connection
         sqlite_connection.close()
