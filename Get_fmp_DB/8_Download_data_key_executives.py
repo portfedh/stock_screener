@@ -38,7 +38,7 @@ for company in ticker_list:
         df = pd.DataFrame(fmp_data)
 
         # Add column with company name
-        df = df.assign(company=company)
+        df = df.assign(symbol=company)
 
         # Create an engine
         engine = create_engine("sqlite:///financialmodelingprep.db", echo=True)

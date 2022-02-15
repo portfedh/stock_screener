@@ -15,11 +15,6 @@ blue_list = json.load(open('10y_blue_list.json', 'r'))
 # Create a new  Dataframe for the Graphs: graph_df
 graph_df = table.copy(deep=True)
 
-# Add percentage columns
-graph_df['Revenue_perc'] = round(((graph_df['revenue']/graph_df['revenue'])*100), 0)
-graph_df['Net_income_perc'] = round(((graph_df['netIncome']/graph_df['revenue'])*100), 0)
-graph_df['Int_exp_perc'] = round(((graph_df['interestExpense']/graph_df['revenue'])*100), 0)
-
 # Sort the data years in ascending order
 graph_df.sort_index(ascending=False, inplace=True)
 

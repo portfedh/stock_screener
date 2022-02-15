@@ -15,11 +15,6 @@ blue_list = json.load(open('blue_list.json', 'r'))
 # Create a new  Dataframe for the Graphs: graph_df
 graph_df = table.copy(deep=True)
 
-# Add percentage columns
-graph_df["tot_liability_perc"] = round(((graph_df["totalLiabilities"] / graph_df["totalAssets"]) * 100), 0)
-graph_df["tot_intang_equity_perc"] = round(((graph_df["goodwillAndIntangibleAssets"] / graph_df["totalAssets"]) * 100), 0)
-graph_df["tot_equity_perc"] = round(((graph_df["totalStockholdersEquity"] / graph_df["totalAssets"]) * 100), 0)
-
 # Sort the data years in ascending order
 graph_df.sort_index(ascending=False, inplace=True)
 
