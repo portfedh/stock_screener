@@ -41,7 +41,10 @@ for company in ticker_list:
         df = df.assign(symbol=company)
 
         # Create an engine
-        engine = create_engine("sqlite:///financialmodelingprep.db", echo=True)
+        engine = create_engine(
+            "sqlite:///financialmodelingprep.db",
+            echo=True
+        )
         sqlite_connection = engine.connect()
 
         # Create a table
